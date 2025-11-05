@@ -73,47 +73,52 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """
-<b>✨ 𝗦𝗜𝗧𝗔 𝗕𝗢𝗧</b> 𝗶𝘀 𝗼𝗻𝗹𝗶𝗻𝗲 𝗮𝗻𝗱 𝗿𝗲𝗮𝗱𝘆 𝘁𝗼 𝗵𝗲𝗹𝗽! 🌟
+PM_START_TEXT = """```
+❖ sɪᴛᴧ ʙσᴛ ❖```
+**✨ ʜєʟʟσ, ɪ'ᴍ sɪᴛᴧ ʙσᴛ!**
 
-𝒀𝒐𝒖𝒓 𝒂𝒍𝒍-𝒊𝒏-𝒐𝒏𝒆 𝒈𝒓𝒐𝒖𝒑 𝒎𝒂𝒏𝒂𝒈𝒆𝒎𝒆𝒏𝒕 + 𝒇𝒖𝒏 𝒃𝒐𝒕:
-• 𝘼𝙙𝙢𝙞𝙣 𝙩𝙤𝙤𝙡𝙨 (𝙗𝙖𝙣/𝙢𝙪𝙩𝙚/𝙥𝙞𝙣) ⚡
-• 𝙒𝙖𝙧𝙣𝙨, 𝙖𝙣𝙩𝙞𝙛𝙡𝙤𝙤𝙙, 𝙛𝙞𝙡𝙩𝙚𝙧𝙨, 𝙣𝙤𝙩𝙚𝙨 📝
-• 𝙎𝙩𝙞𝙘𝙠𝙚𝙧/𝙢𝙚𝙙𝙞𝙖 𝙩𝙤𝙤𝙡𝙨, 𝙩𝙧𝙖𝙣𝙨𝙡𝙖𝙩𝙤𝙧, 𝙬𝙞𝙠𝙞 🎨
-• 𝙀𝙘𝙤𝙣𝙤𝙢𝙮 𝙨𝙮𝙨𝙩𝙚𝙢: 𝙧𝙤𝙗, 𝙠𝙞𝙡𝙡, 𝙡𝙤𝙩𝙩𝙚𝙧𝙮 💰
+**ʏσυʀ ᴧʟʟ-ɪη-σηє ɢʀσυᴩ ϻᴧηᴧɢєϻєηᴛ + ғυη ʙσᴛ:**
 
-<i>© 2025 · 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐢𝐭𝐚𝐁𝐨𝐭 𝐓𝐞𝐚𝐦 💫</i>
+❍ ᴧᴅϻɪη ᴛσσʟs (ʙᴧη/ϻυᴛє/ᴩɪη) ⚡
+❍ ᴡᴧʀηs, ᴧηᴛɪғʟσσᴅ, ғɪʟᴛєʀs, ησᴛєs 📝
+❍ sᴛɪᴄᴋєʀ/ϻєᴅɪᴧ ᴛσσʟs, ᴛʀᴧηsʟᴧᴛσʀ, ᴡɪᴋɪ, ᴧɪ ᴄʜᴧᴛ 🎨
+❍ єᴄσησϻʏ sʏsᴛєϻ: ʀσʙ, ᴋɪʟʟ, ʟσᴛᴛєʀʏ 💰
+
+**❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="❓ 𝙃𝙀𝙇𝙋 & 𝘾𝙊𝙈𝙈𝘼𝙉𝘿𝙎 ❓", callback_data="help_back"),
+            text="• ʜєʟᴩ & ᴄσϻϻᴧηᴅs •", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="👥 𝙎𝙐𝙋𝙋𝙊𝙍𝙏", url=f"https://t.me/brahix_support"),
+        InlineKeyboardButton(text="˹ sυᴩᴩσʀᴛ ˼", url=f"https://t.me/brahix_support"),
         InlineKeyboardButton(
-            text="🔔 𝙐𝙋𝘿𝘼𝙏𝙀𝙎", url=f"https://t.me/about_brahix"
+            text="˹ υᴩᴅᴧᴛєs ˼", url=f"https://t.me/about_brahix"
         ),
     ],
     [
-        InlineKeyboardButton(text="📜 𝘼𝘽𝙊𝙐𝙏", callback_data="sita_"),
+        InlineKeyboardButton(text="˹ ᴧʙσυᴛ ˼", callback_data="sita_"),
         InlineKeyboardButton(
-            text="💰 𝙀𝘾𝙊𝙉𝙊𝙈𝙔", callback_data="economy_help"
+            text="˹ єᴄσησϻʏ ˼", callback_data="economy_help"
         ),
     ],
     [
-        InlineKeyboardButton(text="➕ 𝘼𝘿𝘿 𝙏𝙊 𝙂𝙍𝙊𝙐𝙋", url="http://t.me/Innexiiiabot?startgroup=true"),
+        InlineKeyboardButton(text="➕ ᴧᴅᴅ ᴛσ ɢʀσυᴩ ➕", url="http://t.me/Sitabot?startgroup=true"),
     ],
 ]
 
 
-HELP_STRINGS = """
-<b>⚙️ 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦 & 𝗛𝗘𝗟𝗣</b>
+HELP_STRINGS = """```
+❖ ʜєʟᴩ & ᴄσϻϻᴧηᴅs ❖```
+**ᴄʜσσsє ᴛʜє ᴄᴧᴛєɢσʀʏ ғσʀ ᴡʜɪᴄʜ ʏσυ ᴡᴧηηᴧ ɢєᴛ ʜєʟᴩ**
 
-• 𝘾𝙡𝙞𝙘𝙠 𝙖 𝙘𝙖𝙩𝙚𝙜𝙤𝙧𝙮 𝙗𝙚𝙡𝙤𝙬 𝙩𝙤 𝙗𝙧𝙤𝙬𝙨𝙚 𝙘𝙤𝙢𝙢𝙖𝙣𝙙𝙨 📚
-• 𝘼𝙡𝙡 𝙘𝙤𝙢𝙢𝙖𝙣𝙙𝙨 𝙪𝙨𝙚 𝙩𝙝𝙚 / 𝙥𝙧𝙚𝙛𝙞𝙭 💬
-• 𝙉𝙚𝙚𝙙 𝙝𝙚𝙡𝙥? 𝙅𝙤𝙞𝙣 <a href="https://t.me/brahix_support">𝙎𝙪𝙥𝙥𝙤𝙧𝙩</a> 🆘
+**❍ ᴄʟɪᴄᴋ ᴧ ᴄᴧᴛєɢσʀʏ ʙєʟσᴡ ᴛσ ʙʀσᴡsє ᴄσϻϻᴧηᴅs 📚
+❍ ᴧʟʟ ᴄσϻϻᴧηᴅs υsє ᴛʜє / ᴩʀєғɪx 💬
+❍ ηєєᴅ ʜєʟᴩ? ᴊσɪη <a href="https://t.me/brahix_support">sυᴩᴩσʀᴛ</a> 🆘
+
+❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**
 """
 
 

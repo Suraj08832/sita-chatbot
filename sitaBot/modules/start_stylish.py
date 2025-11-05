@@ -45,12 +45,18 @@ def private_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("˹ ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅꜱ ˼", callback_data="help_back"),
-                InlineKeyboardButton("˹ ᴀᴅᴅ ᴍᴇ ˼", url="https://t.me/Sitabot?startgroup=true"),
+                InlineKeyboardButton("• ʜєʟᴩ & ᴄσϻϻᴧηᴅs •", callback_data="help_back"),
             ],
             [
-                InlineKeyboardButton("˹ sᴜᴘᴘᴏʀᴛ ˼", url="https://t.me/brahix_support"),
-                InlineKeyboardButton("˹ ᴜᴘᴅᴀᴛᴇꜱ ˼", url="https://t.me/about_brahix"),
+                InlineKeyboardButton("˹ sυᴩᴩσʀᴛ ˼", url="https://t.me/brahix_support"),
+                InlineKeyboardButton("˹ υᴩᴅᴧᴛєs ˼", url="https://t.me/about_brahix"),
+            ],
+            [
+                InlineKeyboardButton("˹ ᴧʙσυᴛ ˼", callback_data="sita_"),
+                InlineKeyboardButton("˹ єᴄσησϻʏ ˼", callback_data="economy_help"),
+            ],
+            [
+                InlineKeyboardButton("➕ ᴧᴅᴅ ᴛσ ɢʀσυᴩ ➕", url="https://t.me/Sitabot?startgroup=true"),
             ],
         ]
     )
@@ -60,8 +66,8 @@ def group_keyboard() -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("˹ ʜᴇʟᴘ ˼", callback_data="help_back"),
-                InlineKeyboardButton("˹ ᴄᴏɴғɪɢ ˼", callback_data="stngs_back"),
+                InlineKeyboardButton("˹ ʜєʟᴩ ˼", callback_data="help_back"),
+                InlineKeyboardButton("˹ ᴄσηғɪɢ ˼", callback_data="stngs_back"),
             ]
         ]
     )
@@ -101,16 +107,14 @@ async def stylish_start_pm(_, message: Message):
             pass
 
         caption = (
-            "<b>✨ ɪɴɴᴇxɪᴀ ʙᴏᴛ</b> is online and ready to help!\n\n"
-            "ʏᴏᴜʀ ᴀʟʟ‑ɪɴ‑ᴏɴᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ + ғᴜɴ ʙᴏᴛ:\n"
-            "• ᴀᴅᴍɪɴ ᴛᴏᴏʟs (ʙᴀɴ/ᴍᴜᴛᴇ/ᴘɪɴ)\n"
-            "• ᴡᴀʀɴs, ᴀɴᴛɪғʟᴏᴏᴅ, ғɪʟᴛᴇʀs, ɴᴏᴛᴇs\n"
-            "• ꜱᴛɪᴄᴋᴇʀ/ᴍᴇᴅɪᴀ ᴛᴏᴏʟs, ᴛʀᴀɴꜱʟᴀᴛᴏʀ, ᴡɪᴋɪ, ᴀɪ ᴄʜᴀᴛ\n\n"
-            "<i>© 2025‑26 <a href=\"https://t.me/about_brahix\">brahix Bots</a> ("
-            "<a href=\"https://t.me/brahix\">brahix</a>) · Powered by "
-            "<a href=\"https://t.me/brahix\">BRAHIX</a></i>\n\n"
-            f"<b>ʜᴇʟʟᴏ</b> {message.from_user.mention}\n"
-            "ɪ'ᴍ ʏᴏᴜʀ ɢʀᴏᴜᴘ ʜᴇʟᴘᴇʀ + ғᴜɴ ʙᴏᴛ. ʟᴇᴛ'ꜱ ɢᴇᴛ ꜱᴛᴀʀᴛᴇᴅ!"
+            "<b>✨ sɪᴛᴧ ʙσᴛ ✨</b>\n\n"
+            f"<b>ʜєʟʟσ</b> {message.from_user.mention}!\n\n"
+            "**ʏσυʀ ᴧʟʟ-ɪη-σηє ɢʀσυᴩ ϻᴧηᴧɢєϻєηᴛ + ғυη ʙσᴛ:**\n\n"
+            "❍ ᴧᴅϻɪη ᴛσσʟs (ʙᴧη/ϻυᴛє/ᴩɪη) ⚡\n"
+            "❍ ᴡᴧʀηs, ᴧηᴛɪғʟσσᴅ, ғɪʟᴛєʀs, ησᴛєs 📝\n"
+            "❍ sᴛɪᴄᴋєʀ/ϻєᴅɪᴧ ᴛσσʟs, ᴛʀᴧηsʟᴧᴛσʀ, ᴡɪᴋɪ, ᴧɪ ᴄʜᴧᴛ 🎨\n"
+            "❍ єᴄσησϻʏ sʏsᴛєϻ: ʀσʙ, ᴋɪʟʟ, ʟσᴛᴛєʀʏ 💰\n\n"
+            "<i>❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » <a href=\"https://t.me/brahix\">𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻</a></i>"
         )
         sent = await message.reply_photo(
             random.choice(NEXIO),

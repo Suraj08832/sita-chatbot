@@ -21,9 +21,9 @@ args = "sitaBot"
 name = "sitaBot"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "console"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python3 -m sitaBot"
-
-[workflows.workflow.metadata]
-outputType = "console"
