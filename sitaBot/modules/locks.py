@@ -561,7 +561,9 @@ def __chat_settings__(chat_id, user_id):
     return build_lock_message(chat_id)
 
 
-__help__ = """
+__help__ = """```
+❖ ʟσᴄᴋs ❖```
+
 Do stickers annoy you? or want to avoid people sharing links? or pictures? \
 You're in the right place!
 The locks module allows you to lock away some common items in the \

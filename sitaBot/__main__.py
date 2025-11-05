@@ -121,6 +121,25 @@ HELP_STRINGS = """```
 ❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**
 """
 
+# Module categorization
+MANAGEMENT_MODULES = [
+    "approvals", "ban/mute", "warn", "locks", "bluetext cleaning", 
+    "backup", "blacklist", "stickers b list", "blacklisting users",
+    "control", "purge", "detele", "greetings", "rules", "reports",
+    "notes", "filters", "admin", "connections", "pin", "disabled", 
+    "channel", "federations"
+]
+
+GAMES_FUN_MODULES = [
+    "economy", "couples", "anime", "extras", "quotly", "logo", 
+    "infos", "users", "sed/regex", "math"
+]
+
+ADVANCED_MODULES = [
+    "nsfw", "forcesubs", "shield", "nightmode", "antiflood",
+    "dbcleanup", "modules", "shell"
+]
+
 
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
@@ -172,10 +191,69 @@ for module_name in ALL_MODULES:
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
 
+# Helper function to create category buttons with stylish fonts
+def get_category_buttons():
+    return [
+        [
+            InlineKeyboardButton("⚙️ ᴍᴧηᴧɢєϻєηᴛ ⚙️", callback_data="help_category_management")
+        ],
+        [
+            InlineKeyboardButton("🎮 ɢᴧϻєs & ғυη 🎮", callback_data="help_category_games")
+        ],
+        [
+            InlineKeyboardButton("🔥 ᴧᴅᴠᴧηᴄєᴅ ϻσᴅυʟєs 🔥", callback_data="help_category_advanced")
+        ],
+        [
+            InlineKeyboardButton("🏠 ʜσϻє 🏠", callback_data="sita_back")
+        ]
+    ]
+
+# Helper function to get modules by category
+def get_modules_for_category(category):
+    category_map = {
+        "management": MANAGEMENT_MODULES,
+        "games": GAMES_FUN_MODULES,
+        "advanced": ADVANCED_MODULES
+    }
+    
+    category_modules = category_map.get(category, [])
+    available_modules = {}
+    
+    for mod_name in category_modules:
+        if mod_name.lower() in HELPABLE:
+            available_modules[mod_name.lower()] = HELPABLE[mod_name.lower()]
+    
+    return available_modules
+
+# Helper function to create module buttons for a category
+def create_module_buttons(category):
+    modules = get_modules_for_category(category)
+    buttons = []
+    
+    module_list = list(modules.items())
+    
+    # Create buttons in rows of 2
+    for i in range(0, len(module_list), 2):
+        row = []
+        for j in range(i, min(i + 2, len(module_list))):
+            mod_name, mod = module_list[j]
+            display_name = mod.__mod_name__
+            # Use stylish font for button text
+            row.append(InlineKeyboardButton(
+                f"• {display_name} •",
+                callback_data=f"help_module({mod_name})"
+            ))
+        buttons.append(row)
+    
+    # Add back button
+    buttons.append([InlineKeyboardButton("⬅️ ʙᴧᴄᴋ ⬅️", callback_data="help_back")])
+    
+    return buttons
+
 # do not async
 def send_help(chat_id, text, keyboard=None):
     if not keyboard:
-        keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
+        keyboard = InlineKeyboardMarkup(get_category_buttons())
     dispatcher.bot.send_message(
         chat_id=chat_id,
         text=text,
@@ -304,64 +382,62 @@ def error_callback(update: Update, context: CallbackContext):
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
-    prev_match = re.match(r"help_prev\((.+?)\)", query.data)
-    next_match = re.match(r"help_next\((.+?)\)", query.data)
+    category_match = re.match(r"help_category_(.+)", query.data)
     back_match = re.match(r"help_back", query.data)
 
     print(query.message.chat.id)
 
     try:
         if mod_match:
+            # Show specific module help
             module = mod_match.group(1)
-            text = (
-                "Here is the help for the *{}* module:\n".format(
-                    HELPABLE[module].__mod_name__
+            if module.lower() in HELPABLE:
+                mod_obj = HELPABLE[module.lower()]
+                text = f"```\n❖ {mod_obj.__mod_name__.upper()} ❖```\n\n{mod_obj.__help__}\n\n**❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**"
+                
+                query.message.edit_text(
+                    text=text,
+                    parse_mode=ParseMode.MARKDOWN,
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton(text="⬅️ ʙᴧᴄᴋ ⬅️", callback_data="help_back")]]
+                    ),
                 )
-                + HELPABLE[module].__help__
-            )
+
+        elif category_match:
+            # Show modules for the selected category
+            category = category_match.group(1)
+            
+            category_titles = {
+                "management": "```\n❖ ᴍᴧηᴧɢєϻєηᴛ ϻσᴅυʟєs ❖```\n\n**ᴄʟɪᴄᴋ ση ᴧ ϻσᴅυʟє ᴛσ sєє ɪᴛs ᴄσϻϻᴧηᴅs ⚙️**\n\n**❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**",
+                "games": "```\n❖ ɢᴧϻєs & ғυη ϻσᴅυʟєs ❖```\n\n**ᴄʟɪᴄᴋ ση ᴧ ϻσᴅυʟє ᴛσ sєє ɪᴛs ᴄσϻϻᴧηᴅs 🎮**\n\n**❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**",
+                "advanced": "```\n❖ ᴧᴅᴠᴧηᴄєᴅ ϻσᴅυʟєs ❖```\n\n**ᴄʟɪᴄᴋ ση ᴧ ϻσᴅυʟє ᴛσ sєє ɪᴛs ᴄσϻϻᴧηᴅs 🔥**\n\n**❖ 𝐏ᴏᴡᴇʀᴇᴅ 𝖡ʏ » [𝆺𝅥⃝🎧×⃪͜‌ 𝐁 𝐑 𝐀 𝐇 𝐈 𝐗 ◡̈⃝⟶📻](https://t.me/brahix)**"
+            }
+            
+            text = category_titles.get(category, HELP_STRINGS)
+            buttons = create_module_buttons(category)
+            
             query.message.edit_text(
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
-                ),
-            )
-
-        elif prev_match:
-            curr_page = int(prev_match.group(1))
-            query.message.edit_text(
-                text=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(curr_page - 1, HELPABLE, "help")
-                ),
-            )
-
-        elif next_match:
-            next_page = int(next_match.group(1))
-            query.message.edit_text(
-                text=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(next_page + 1, HELPABLE, "help")
-                ),
+                reply_markup=InlineKeyboardMarkup(buttons),
             )
 
         elif back_match:
+            # Go back to category selection
             query.message.edit_text(
                 text=HELP_STRINGS,
                 parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, HELPABLE, "help")
-                ),
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(get_category_buttons()),
             )
 
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
-        # query.message.delete()
 
-    except BadRequest:
+    except BadRequest as e:
+        print(f"BadRequest in help_button: {e}")
         pass
 
 

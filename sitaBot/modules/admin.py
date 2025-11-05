@@ -636,7 +636,9 @@ def adminlist(update, context):
         return
 
 
-__help__ = """
+__help__ = """```
+❖ ᴧᴅϻɪη ᴄσϻϻᴧηᴅs ❖```
+
  ❍ /admins*:* list of admins in the chat
 
 *Admins only:*

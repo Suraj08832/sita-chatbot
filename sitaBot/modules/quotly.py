@@ -155,8 +155,10 @@ async def quotly_cmd(_, m: Message):
 
 
 __mod_name__ = "Quotly"
-__help__ = """
-- /q [r] [1-10]: Reply to a message to create a quote sticker. Use r to include replied preview.
+__help__ = """```
+❖ ǫυσᴛʟʏ ❖```
+
+❍ /q [r] [1-10]: Reply to a message to create a quote sticker. Use r to include replied preview.
 """
 
 

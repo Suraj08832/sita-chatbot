@@ -369,7 +369,9 @@ def get_chat(chat_id, chat_data):
 
 __mod_name__ = "Backup"
 
-__help__ = """
+__help__ = """```
+❖ ʙᴧᴄᴋυᴩ ❖```
+
 *Only for group owner:*
 
  ❍ /import: Reply to the backup file for the butler / emilia group to import as much as possible, making transfers very easy! \

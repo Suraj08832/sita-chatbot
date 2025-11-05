@@ -117,7 +117,9 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat has had it's rules set: `{bool(sql.get_rules(chat_id))}`"
 
 
-__help__ = """
+__help__ = """```
+❖ ʀυʟєs ❖```
+
  ❍ /rules*:* get the rules for this chat.
 
 *Admins only:*

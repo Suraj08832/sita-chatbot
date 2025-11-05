@@ -18,7 +18,7 @@ from sitaBot.utils.pyro_logger import send_event_log
 # Ensure module is loaded
 __mod_name__ = "Start"
 __help__ = """
-- /start : Start the bot and see the main menu
+❍ /start : Start the bot and see the main menu
 """
 
 

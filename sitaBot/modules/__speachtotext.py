@@ -92,7 +92,9 @@ async def _(event):
         await event.reply("Reply to a voice message, to get the text out of it.")
 
 
-__help__ = """
+__help__ = """```
+❖ SPEACH ❖```
+
 I can convert text to voice and voice to text..
  ❍ /tts <lang code>*:* Reply to any message to get text to speech output
  ❍ /stt*:* Type in reply to a voice message(support english only) to extract text from it.

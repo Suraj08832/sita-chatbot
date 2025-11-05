@@ -606,7 +606,9 @@ dispatcher.add_handler(CommandHandler("game", lottery_game))
 dispatcher.add_handler(CommandHandler("daily", daily))
 
 __mod_name__ = "Economy"
-__help__ = """
+__help__ = """```
+❖ єᴄσησϻʏ sʏsᴛєϻ ❖```
+
 💰 Economy System - Earn, rob, kill, and play lottery!
 
 Commands:

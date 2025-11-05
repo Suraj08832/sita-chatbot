@@ -502,7 +502,9 @@ def __chat_settings__(chat_id, user_id):
     )
 
 
-__help__ = """
+__help__ = """```
+❖ ᴡᴧʀηɪηɢs ❖```
+
  ❍ /warns <userhandle>*:* get a user's number, and reason, of warns.
  ❍ /warnlist*:* list of all current warning filters
 *Admins only:*

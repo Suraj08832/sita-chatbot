@@ -66,7 +66,7 @@ async def tgraph_upload(_, m: Message):
 
 __mod_name__ = "T-Graph"
 __help__ = """
-- /tgm, /tgt, /telegraph, /tl: Reply to any media to upload and get a link.
+❍ /tgm, /tgt, /telegraph, /tl: Reply to any media to upload and get a link.
 """
 
 

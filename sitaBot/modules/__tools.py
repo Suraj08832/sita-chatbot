@@ -1,6 +1,8 @@
 __mod_name__ = "Tools"
 
-__help__ = """
+__help__ = """```
+❖ TOOLS ❖```
+
 *Fake Info*
  ❍ /fakegen*:* Generates Fake Information
  ❍ /picgen*:* Generate a fake pic 
@@ -12,7 +14,7 @@ __help__ = """
  ❍ /wttr moon*:* Get the current status of moon
  
 *Quotly*
-- /q : reply any message with this command to create a sticker.
+❍ /q : reply any message with this command to create a sticker.
 
 *Converts*
  ❍ /encrypt*:* Encrypts The Given Text

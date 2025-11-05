@@ -262,7 +262,7 @@ async def stop_tagging(client, message):
 
 __mod_name__ = "Tagall"
 __help__ = """
-- /tagall or /rtag: Mention all members (reply to a message to tag with emojis)
-- /vctag: Mention all with VC-style lines
-- /rstop: Stop an ongoing tag session (aliases: /tagstop, /vcstop, /tagoff)
+❍ /tagall or /rtag: Mention all members (reply to a message to tag with emojis)
+❍ /vctag: Mention all with VC-style lines
+❍ /rstop: Stop an ongoing tag session (aliases: /tagstop, /vcstop, /tagoff)
 """

@@ -148,7 +148,9 @@ async def deezer(_, message):
     
 __mod_name__ = "Music"
 
-__help__ = """
+__help__ = """```
+❖ MUSIC ❖```
+
 • `/song`** <songname artist(optional)>: download the song in it's best quality available.(API BASED)
 • `/video`** <songname artist(optional)>: download the video song in it's best quality available.
 • `/deezer`** <songname>: download from deezer

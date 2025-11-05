@@ -96,7 +96,9 @@ def totranslate(update: Update, context: CallbackContext):
         return
 
 
-__help__ = """
+__help__ = """```
+❖ G-TRANS ❖```
+
  ❍ /tr or /tl (language code) as reply to a long message
 *Example:* 
  ❍ /tr en*:* translates something to english
