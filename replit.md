@@ -99,14 +99,22 @@ sitaBot/
    - Features: rob, kill, revive, protect, lottery, items/gifting
    - Global tracking with leaderboards
 
-4. **UI Enhancement**
+4. **UI Enhancement - LATEST UPDATE**
    - Updated start/help buttons with fancy Unicode fonts
    - Improved visual appeal: ʙᴏᴛ, ᴀʙᴏᴜᴛ, sᴜᴘᴘᴏʀᴛ, ᴜᴘᴅᴀᴛᴇs, ʜᴇʟᴘ
+   - **NEW: Categorized Help System**
+     - Organized modules into 3 categories: Management, Games & Fun, Advanced
+     - Added stylish headers with ❖ symbols to all 38 module help texts
+     - Converted bullet points from - to ❍ across all help texts
+     - Stylish small caps font: ᴧᴅϻɪη, ʙᴧη, ᴡᴧʀηs, єᴄσησϻʏ, etc.
+   - Created interactive button navigation for help categories
+   - Enhanced user experience with organized, visually appealing help menus
 
 5. **Environment Setup**
    - Installed Python 3.9
    - Configured all 60+ dependencies
    - Set up Replit workflow for auto-restart
+   - Fixed urllib3 compatibility (downgraded to 1.26.15)
 
 ## Configuration
 
