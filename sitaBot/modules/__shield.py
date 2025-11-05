@@ -19,7 +19,7 @@ import re
 
 import better_profanity
 import emoji
-import nude
+# import nude  # nudepy not available - commented out
 import requests
 from better_profanity import profanity
 from google_trans_new import google_translator

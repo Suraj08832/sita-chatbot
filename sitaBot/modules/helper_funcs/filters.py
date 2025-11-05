@@ -7,18 +7,27 @@ class CustomFilters(object):
     class _Supporters(BaseFilter):
         def filter(self, message: Message):
             return bool(message.from_user and message.from_user.id in DEMONS)
+        
+        def __call__(self, message: Message):
+            return self.filter(message)
 
     support_filter = _Supporters()
 
     class _Sudoers(BaseFilter):
         def filter(self, message: Message):
             return bool(message.from_user and message.from_user.id in DRAGONS)
+        
+        def __call__(self, message: Message):
+            return self.filter(message)
 
     sudo_filter = _Sudoers()
 
     class _Developers(BaseFilter):
         def filter(self, message: Message):
             return bool(message.from_user and message.from_user.id in DEV_USERS)
+        
+        def __call__(self, message: Message):
+            return self.filter(message)
 
     dev_filter = _Developers()
 
@@ -31,6 +40,9 @@ class CustomFilters(object):
             return bool(
                 message.document and message.document.mime_type == self.mime_type
             )
+        
+        def __call__(self, message: Message):
+            return self.filter(message)
 
     mime_type = _MimeType
 
@@ -43,5 +55,8 @@ class CustomFilters(object):
                 or message.document
                 or message.video
             )
+        
+        def __call__(self, message: Message):
+            return self.filter(message)
 
     has_text = _HasText()
