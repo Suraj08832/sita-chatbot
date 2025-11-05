@@ -1,0 +1,91 @@
+
+------------------------------------------
+548 process_update dispatcher.py
+> check = handler.check_update(update)
+
+---
+
+196 check_update messagehandler.py
+> return self.filters(update)
+
+---
+
+233 __call__ filters.py
+> return self.filter(update)
+
+---
+
+320 filter filters.py
+> base_output = self.base_filter(update)
+
+---
+
+233 __call__ filters.py
+> return self.filter(update)
+
+---
+
+326 filter filters.py
+> comp_output = self.and_filter(update)
+
+---
+
+233 __call__ filters.py
+> return self.filter(update)
+
+---
+
+320 filter filters.py
+> base_output = self.base_filter(update)
+
+---
+
+60 __call__ filters.py
+> return self.filter(message)
+
+---
+
+52 filter filters.py
+> message.text
+
+AttributeError:
+'Update' object has no attribute 'text'
+
+-------------------------------------------------------------------------------
+An exception was raised while handling an update
+User: 8115787127
+Chat: None 8115787127
+Callback data: None
+Message: /start
+
+Full Traceback: Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/dispatcher.py", line 548, in process_update
+    check = handler.check_update(update)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/messagehandler.py", line 196, in check_update
+    return self.filters(update)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/filters.py", line 233, in __call__
+    return self.filter(update)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/filters.py", line 320, in filter
+    base_output = self.base_filter(update)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/filters.py", line 233, in __call__
+    return self.filter(update)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/filters.py", line 326, in filter
+    comp_output = self.and_filter(update)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/filters.py", line 233, in __call__
+    return self.filter(update)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/telegram/ext/filters.py", line 320, in filter
+    base_output = self.base_filter(update)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/sitaBot/modules/helper_funcs/filters.py", line 60, in __call__
+    return self.filter(message)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/sitaBot/modules/helper_funcs/filters.py", line 52, in filter
+    message.text
+AttributeError: 'Update' object has no attribute 'text'
